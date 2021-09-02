@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CompetitionsRoutingModule } from './competitions-routing.module';
 import { CompetitionsComponent } from './list/competitions.component';
+import { CompetitionsService } from './competitions.service';
 
 
 @NgModule({
@@ -11,7 +12,10 @@ import { CompetitionsComponent } from './list/competitions.component';
   ],
   imports: [
     CommonModule,
-    CompetitionsRoutingModule
-  ]
+    CompetitionsRoutingModule,
+  ],
+  exports: [CompetitionsComponent],
+  providers: [CompetitionsService]
+
 })
 export class CompetitionsModule { }

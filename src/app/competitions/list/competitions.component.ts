@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompetitionsService } from '../competitions.service';
 
 @Component({
   selector: 'app-competitions',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompetitionsComponent implements OnInit {
 
-  constructor() { }
+  public competitionsList: any = [];
+
+  constructor(private readonly competitionsService: CompetitionsService) { }
 
   ngOnInit(): void {
+    this.initCompetitions();
+  }
+
+  initCompetitions() {
+    this.competitionsService.loadCompetitions().subscribe(
+      data => {
+        this.competitionsList = data
+      },
+      err => console.log(err)
+    );
   }
 
 }
