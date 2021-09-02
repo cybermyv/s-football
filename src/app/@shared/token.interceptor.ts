@@ -12,12 +12,11 @@ export class TokenInterceptor implements HttpInterceptor {
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         
-        const TOKEN = '35ece1af9ff04dd28ea9496048d9f34a';
+        const token = '35ece1af9ff04dd28ea9496048d9f34a';
         const request = req.clone({
-            setHeaders: {
-                'X-Auth-Token': TOKEN
-            }
+            headers: req.headers.set('X-Auth-Token', token)
+        
         });
-        return next.handle(request);
+        return next.handle(request)
     }
 }

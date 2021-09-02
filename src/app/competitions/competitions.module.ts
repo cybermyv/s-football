@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CompetitionsRoutingModule } from './competitions-routing.module';
 import { CompetitionsComponent } from './list/competitions.component';
 import { CompetitionsService } from './competitions.service';
+import { SharedModule } from '@shared/shared.module';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { CompetitionsService } from './competitions.service';
   imports: [
     CommonModule,
     CompetitionsRoutingModule,
+    SharedModule
   ],
   exports: [CompetitionsComponent],
   providers: [CompetitionsService]

@@ -8,7 +8,28 @@ import { CompetitionsService } from '../competitions.service';
 })
 export class CompetitionsComponent implements OnInit {
 
-  public competitionsList: any = [];
+  competitionsList: any = [
+    {
+      "id": 2144,
+      "area": {
+        "id": 2000,
+        "name": "Afghanistan"
+      },
+      "name": "Playoffs 2/3",
+      "code": null,
+      "plan": "TIER_FOUR",
+      "currentSeason": {
+        "id": 212,
+        "startDate": "2018-05-22",
+        "endDate": "2018-05-27",
+        "currentMatchday": null
+      },
+      "numberOfAvailableSeasons": 1,
+      "lastUpdated": "2018-07-13T13:34:06Z"
+    }
+  ];
+
+  displayColumns: string[] = ['id', 'name', 'code', 'plan', 'numberOfAvailableSeasons', 'lastUpdated'];
 
   constructor(private readonly competitionsService: CompetitionsService) { }
 
@@ -19,7 +40,7 @@ export class CompetitionsComponent implements OnInit {
   initCompetitions() {
     this.competitionsService.loadCompetitions().subscribe(
       data => {
-        this.competitionsList = data
+        this.competitionsList = data.competitions
       },
       err => console.log(err)
     );

@@ -1,1 +1,13 @@
-<p>competitions works!</p>
+<table mat-table #table [dataSource]="competitionsList" >
+
+   <ng-container [matColumnDef]="col" *ngFor="let col of displayColumns">
+
+    <th class="" mat-header-cell *matHeaderCellDef>{{col}}</th>
+    <td ngClass="w-150" mat-cell *matCellDef="let element; let idx = index">{{element[col]}}</td>
+
+   </ng-container>
+
+   <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
+   <tr mat-row *matRowDef="let row; columns: displayColumns;"></tr>
+
+</table>

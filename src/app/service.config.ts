@@ -1,10 +1,10 @@
-const BASE_URL = 'http://api.football-data.org/v2/';
+const BASE_URL = '/api';
 
 export const SERVICES = {
     competitions: {
-        path: BASE_URL + 'competitions'
+        path: BASE_URL + '/competitions'
     },
     matches: {
-        path: BASE_URL + 'matches'
+        path: BASE_URL + '/matches'
     }
 };
